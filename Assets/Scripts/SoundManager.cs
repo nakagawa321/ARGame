@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource GameMain;
     public AudioSource play_GameMain; // メイン音
     public AudioClip Don;
+    public AudioClip afterCut;
 
     // Start is called before the first frame update
     void Start()
@@ -40,5 +41,10 @@ public class SoundManager : MonoBehaviour
     public void playSound2()
     {
         GameMain.PlayOneShot(Don);
+    }
+    // 斬跡音
+    public void playSound3()
+    {
+        GameMain.PlayOneShot(afterCut);
     }
 }
