@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class screenManager : MonoBehaviour
+public class destroryAftercut : MonoBehaviour
 {
+    public GameObject aftercut;
+    private int destroyCount = 0;
+    private int aftercutSpeed = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,15 +17,11 @@ public class screenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
-
-    // android版
-    public void onClick()
-    {
-        if (SceneManager.GetActiveScene().name == "StartScene")
+        if (destroyCount > aftercutSpeed)
         {
-            SceneManager.LoadScene("GameMain");
+            Destroy(aftercut);
         }
+        destroyCount++;
 
     }
 }
