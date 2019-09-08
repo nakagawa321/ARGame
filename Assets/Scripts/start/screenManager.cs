@@ -19,17 +19,15 @@ public class screenManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameMain");
         }
-        // android版
-        if (Input.touchCount > 0 && SceneManager.GetActiveScene().name == "StartScene")
+    }
+
+    // android版
+    public void onClick()
+    {
+        if (SceneManager.GetActiveScene().name == "StartScene")
         {
-            // タッチ情報の取得
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                SceneManager.LoadScene("GameMain");
-            }
-
+            SceneManager.LoadScene("GameMain");
         }
+
     }
 }
