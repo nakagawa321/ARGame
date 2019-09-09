@@ -34,7 +34,7 @@ public class enemyManager : MonoBehaviour
             ramVector.y = Random.Range(-50.0f, 50.0f);
             ramVector.x = Random.Range(-50.0f, 50.0f);
 
-            GameObject obj = Instantiate(bambooPrehab, ramVector, Quaternion.identity, parent); // prehab作成
+            GameObject obj = Instantiate(bambooPrehab, ramVector/*new Vector3(0.0f, 0.0f, 10.0f)*/, Quaternion.identity, parent); // prehab作成
             obj.name = "bamboo(Clone)" + enemyCreate; // 名前編集
             bamboo[enemyCreate] = GameObject.Find("bamboo(Clone)" + enemyCreate);
             enemyCreate++;
@@ -47,7 +47,6 @@ public class enemyManager : MonoBehaviour
         {
             if (bamboo[i] != null)
             {
-                Debug.Log(i);
                 //targetの方に少しずつ向きが変わる
                 bamboo[i].transform.rotation = Quaternion.Slerp(bamboo[i].transform.rotation, Quaternion.LookRotation(ARCamera.transform.position - bamboo[i].transform.position), 0.3f);
 
