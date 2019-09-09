@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class boxCollision : MonoBehaviour
 {
+    public SoundManager soundManager = new SoundManager();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class boxCollision : MonoBehaviour
     {
         if (Input.GetKeyDown("return"))
         {
+            soundManager.playSound4(); // ヒット音
             Destroy(collision.gameObject); // 竹削除
         }
 
@@ -30,6 +33,7 @@ public class boxCollision : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
+                soundManager.playSound4(); // ヒット音
                 Destroy(collision.gameObject); // 竹削除
             }
         }
