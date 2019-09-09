@@ -5,6 +5,8 @@ using UnityEngine;
 public class boxCollision : MonoBehaviour
 {
     public SoundManager soundManager = new SoundManager();
+    public GameObject Particle;
+    private int effectCnt = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +17,23 @@ public class boxCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // エフェクト処理
+        if ((effectCnt % 10) == 0)
+        {
+            GameObject hieraruParticle = GameObject.Find("Particle System(Clone)");
+            if(hieraruParticle != null) //ヒエラルキーにパーティクルがあるか
+            {
+                Destroy(hieraruParticle);
+            }
+        }
+        effectCnt++;
     }
 
     void OnCollisionStay(Collision collision)
     {
         if (Input.GetKeyDown("return"))
         {
+            Instantiate(Particle, collision.transform.position, transform.rotation); // エフェクト
             soundManager.playSound4(); // ヒット音
             Destroy(collision.gameObject); // 竹削除
         }
@@ -33,6 +45,7 @@ public class boxCollision : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
+                Instantiate(Particle, collision.transform.position, transform.rotation); // エフェクト
                 soundManager.playSound4(); // ヒット音
                 Destroy(collision.gameObject); // 竹削除
             }
