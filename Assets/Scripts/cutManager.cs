@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class cutManager : MonoBehaviour
 {
     public SoundManager SoundManager;
-    public GameObject Canvas;
+    public GameObject AfterCutUI;
     public GameObject afterCut_left;
     public GameObject afterCut_right;
     private Vector3 aftercutTransform = new Vector3(190.0f, 150.0f, 0.0f);
@@ -23,22 +23,7 @@ public class cutManager : MonoBehaviour
     void Update()
     {
         // 斬跡をprefaabから子として作成
-        var parent = Canvas.transform;
-        if (onClick.startFlg == true && Input.GetKeyDown("return"))
-        {
-
-            SoundManager.playSound3(); // 斬跡音
-            if (stateAftercut == false)
-            {
-                Instantiate(afterCut_left, aftercutTransform, Quaternion.identity, parent); // 斬り後左表示
-                stateAftercut = true;
-            }
-            else
-            {
-                Instantiate(afterCut_right, aftercutTransform, Quaternion.identity, parent); // 斬り後左表示
-                stateAftercut = false;
-            }
-        }
+        var parent = AfterCutUI.transform;
         // android版
         if (Input.touchCount > 0)
         {
@@ -46,7 +31,19 @@ public class cutManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (onClick.startFlg == true && touch.phase == TouchPhase.Began)
             {
-                // ここに処理
+                SoundManager.playSound3(); // 斬跡音
+                if (stateAftercut == false)
+                {
+                    GameObject obj = Instantiate(afterCut_left, aftercutTransform, Quaternion.identity, parent); // 斬り後左表示
+                    obj.transform.localScale = new Vector3(3, 3, 1);//サイズ調整
+                    stateAftercut = true;
+                }
+                else
+                {
+                    GameObject obj = Instantiate(afterCut_right, aftercutTransform, Quaternion.identity, parent); // 斬り後左表示
+                    obj.transform.localScale = new Vector3(3, 3, 1);//サイズ調整
+                    stateAftercut = false;
+                }
             }
         }
     }
