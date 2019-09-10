@@ -5,8 +5,10 @@ using UnityEngine;
 public class boxCollision : MonoBehaviour
 {
     public SoundManager soundManager = new SoundManager();
+
     public GameObject Particle;
     private int effectCnt = 0;
+    private int scorePoint = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class boxCollision : MonoBehaviour
             {
                 Instantiate(Particle, collision.transform.position, transform.rotation); // エフェクト
                 soundManager.playSound4(); // ヒット音
+                scoreManager.Score += 10; // スコア
                 Destroy(collision.gameObject); // 竹削除
             }
         }
