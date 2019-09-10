@@ -9,7 +9,7 @@ public class cutManager : MonoBehaviour
     public GameObject AfterCutUI;
     public GameObject afterCut_left;
     public GameObject afterCut_right;
-    private Vector3 aftercutTransform = new Vector3(190.0f, 150.0f, 0.0f);
+    private Vector3 aftercutTransform = new Vector3(1100.0f, 500.0f, 0.0f);
 
     bool stateAftercut = false;
 
@@ -35,13 +35,11 @@ public class cutManager : MonoBehaviour
                 if (stateAftercut == false)
                 {
                     GameObject obj = Instantiate(afterCut_left, aftercutTransform, Quaternion.identity, parent); // 斬り後左表示
-                    obj.transform.localScale = new Vector3(3, 3, 1);//サイズ調整
                     stateAftercut = true;
                 }
                 else
                 {
                     GameObject obj = Instantiate(afterCut_right, aftercutTransform, Quaternion.identity, parent); // 斬り後左表示
-                    obj.transform.localScale = new Vector3(3, 3, 1);//サイズ調整
                     stateAftercut = false;
                 }
             }
