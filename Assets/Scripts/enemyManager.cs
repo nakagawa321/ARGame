@@ -7,11 +7,11 @@ public class enemyManager : MonoBehaviour
     public GameObject bambooPrehab;
     public GameObject[] bamboo = new GameObject[100];
     public GameObject bambooes;
-    public GameObject ARCamera;
+    public GameObject damageBox;
     private int enemyOccurrenceCnt = 0;
     private int enemyCreate = 0;
     private int enemyValue = 100;
-    private int createMin = 50, createMax = 80;
+//    private int createMin = 50, createMax = 80;
     private float speedMin = 0.05f, speedMax = 1.0f; // 移動スピード
     private Vector3 ramVector = new Vector3(0.0f, 0.0f, 0.0f);
 
@@ -27,7 +27,7 @@ public class enemyManager : MonoBehaviour
     {
         // 子として作成
         var parent = bambooes.transform;
-        if (onClick.startFlg == true && (enemyOccurrenceCnt % Random.Range(createMin, createMax)) == 0)
+        if (onClick.startFlg == true && (enemyOccurrenceCnt % 100) == 0)
         {
             // ランダム値取得
             ramVector.x = Random.Range(-7.0f, 7.0f);
@@ -48,7 +48,7 @@ public class enemyManager : MonoBehaviour
             if (bamboo[i] != null)
             {
                 //targetの方に少しずつ向きが変わる
-                bamboo[i].transform.rotation = Quaternion.Slerp(bamboo[i].transform.rotation, Quaternion.LookRotation(ARCamera.transform.position - bamboo[i].transform.position), 0.3f);
+                bamboo[i].transform.rotation = Quaternion.Slerp(bamboo[i].transform.rotation, Quaternion.LookRotation(damageBox.transform.position - bamboo[i].transform.position), 0.3f);
 
                 //targetに向かって進む
                 bamboo[i].transform.position += bamboo[i].transform.forward * Random.Range(speedMin, speedMax);
