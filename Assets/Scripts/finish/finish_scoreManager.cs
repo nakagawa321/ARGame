@@ -22,4 +22,5 @@ public class finish_scoreManager : MonoBehaviour
         scoreText.text = "Score : " + scoreManager.getScore();
 
     }
+
 }

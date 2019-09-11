@@ -11,7 +11,7 @@ public class onClick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startFlg = false;
     }
 
     // Update is called once per frame
