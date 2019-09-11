@@ -11,9 +11,14 @@ public class enemyManager : MonoBehaviour
     private int enemyOccurrenceCnt = 0;
     private int enemyCreate = 0;
     private int enemyValue = 100;
-//    private int createMin = 50, createMax = 80;
+    private int createMin = 50, createMax = 100;
+    private int careteValue = 50;
     private float speedMin = 0.05f, speedMax = 1.0f; // 移動スピード
     private Vector3 ramVector = new Vector3(0.0f, 0.0f, 0.0f);
+    private float ramVectorMin_x = -7.0f, ramVectorMax_x = 7.0f; // 座標xランダム数
+    private float ramVectorMin_y = -10.0f, ramVectorMax_y = 0.0f; // 座標yランダム数
+    private float ramVectorMin_z = 20.0f, ramVectorMax_z = 40.0f; // 座標zランダム数
+
 
 
     // Start is called before the first frame update
@@ -27,17 +32,18 @@ public class enemyManager : MonoBehaviour
     {
         // 子として作成
         var parent = bambooes.transform;
-        if (onClick.startFlg == true && (enemyOccurrenceCnt % 100) == 0)
+        if (onClick.startFlg == true && (enemyOccurrenceCnt % careteValue) == 0)
         {
             // ランダム値取得
-            ramVector.x = Random.Range(-7.0f, 7.0f);
-            ramVector.y = Random.Range(-10.0f, 0.0f);
-            ramVector.z = Random.Range(20.0f, 40.0f);
+            ramVector.x = Random.Range(ramVectorMin_x, ramVectorMax_x);
+            ramVector.y = Random.Range(ramVectorMin_y, ramVectorMax_y);
+            ramVector.z = Random.Range(ramVectorMin_z, ramVectorMax_z);
 
             GameObject obj = Instantiate(bambooPrehab, ramVector, Quaternion.identity, parent); // prehab作成
             obj.name = "bamboo(Clone)" + enemyCreate; // 名前編集
             bamboo[enemyCreate] = GameObject.Find("bamboo(Clone)" + enemyCreate);
             enemyCreate++;
+            careteValue = Random.Range(createMin, createMax); // ランダム出現数取得
         }
         enemyOccurrenceCnt++;
 

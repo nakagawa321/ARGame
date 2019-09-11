@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a31d51a18256744e933a44d3bcd469a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundManager: {fileID: 847302597}
+  collisionManager: {fileID: 847302602}
   Particle: {fileID: 2578122908335673085, guid: f96e83d2bbd035e499f7499143f93329,
     type: 3}
 --- !u!54 &761381402
@@ -1608,6 +1608,7 @@ GameObject:
   - component: {fileID: 847302599}
   - component: {fileID: 847302600}
   - component: {fileID: 847302601}
+  - component: {fileID: 847302602}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1794,6 +1795,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 847302600}
+--- !u!114 &847302602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847302596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9c44a4f28b21147b28b6186f3e2204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 847302597}
+  Particle: {fileID: 2578122908335673085, guid: f96e83d2bbd035e499f7499143f93329,
+    type: 3}
 --- !u!4 &878330572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 421922, guid: be999fe03c257ec4cb0a3a4b5ca72217,
@@ -2361,6 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0235cf7d314790749a654349fdb9b63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionManager: {fileID: 847302602}
 --- !u!4 &1315872750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: ad5878248fac71a48aa469475023f88a,

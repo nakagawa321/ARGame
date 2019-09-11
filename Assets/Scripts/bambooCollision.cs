@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bambooCollision : MonoBehaviour
 {
+    public collisionManager collisionManager = new collisionManager();
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,6 @@ public class bambooCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(collision.gameObject); // 竹削除
+        collisionManager.bambooCollision(collision); //コリジョンマネージャへ
     }
 }
