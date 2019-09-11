@@ -26,9 +26,16 @@ public class scoreManager : MonoBehaviour
         }
     }
 
-    // シーン間共有
-    public int getScore()
+    // スコアセッター
+    public static void setScore(int score)
+    {
+        Score += score;
+    }
+
+    // スコア(シーン間共有)
+    public static int getScore()
     {
         return Score;
     }
+
 }

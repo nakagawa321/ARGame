@@ -49,7 +49,7 @@ public class boxCollision : MonoBehaviour
             {
                 Instantiate(Particle, collision.transform.position, transform.rotation); // エフェクト
                 soundManager.playSound4(); // ヒット音
-                scoreManager.Score += 10; // スコア
+                scoreManager.setScore(scorePoint); // スコア
                 Destroy(collision.gameObject); // 竹削除
             }
         }
