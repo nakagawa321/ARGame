@@ -11,7 +11,7 @@ public class enemyManager : MonoBehaviour
     private int enemyOccurrenceCnt = 0;
     private int enemyCreate = 0;
     private int enemyValue = 100;
-    private int createMin = 50, createMax = 100;
+    private int createMin = 25, createMax = 50;
     private int careteValue = 50;
     private float speedMin = 0.05f, speedMax = 1.0f; // 移動スピード
     private Vector3 ramVector = new Vector3(0.0f, 0.0f, 0.0f);
@@ -44,6 +44,7 @@ public class enemyManager : MonoBehaviour
             bamboo[enemyCreate] = GameObject.Find("bamboo(Clone)" + enemyCreate);
             enemyCreate++;
             careteValue = Random.Range(createMin, createMax); // ランダム出現数取得
+            enemyOccurrenceCnt = 0; // ランダムカウントリセット
         }
         enemyOccurrenceCnt++;
 
